@@ -58,9 +58,12 @@ block content
         });
       });
     }
+
+  // Google Maps API Key
+  script.
+    const GOOGLE_MAPS_API_KEY = '!{PLACES_API_KEY}';
   script(
     async
     defer
-    src="https://maps.googleapis.com/maps/api/js"
-      + "?key=AIzaSyDaF4Pzmqg5oVAaC4iMIrZVeyq42bAKHhU&callback=initMap"
+    src=`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap`
   )

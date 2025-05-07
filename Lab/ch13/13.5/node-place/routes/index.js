@@ -4,6 +4,7 @@ const googleMaps = require('@google/maps');
 
 const History = require('../schemas/history');
 const Favorite = require('../schemas/favorite');
+require('dotenv').config(); 
 
 const router = express.Router();
 const googleMapsClient = googleMaps.createClient({
@@ -18,6 +19,14 @@ router.get('/', async (req, res, next) => {
     console.error(error);
     next(error);
   }
+});
+
+router.get('/result', (req, res) => {
+  res.render('result', {
+    PLACES_API_KEY: process.env.PLACES_API_KEY,
+    query: '검색어',
+    results: searchResults // ← 이건 기존 검색 결과 배열
+  });
 });
 
 router.get('/autocomplete/:query', (req, res, next) => {
