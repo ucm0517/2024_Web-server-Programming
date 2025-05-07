@@ -53,6 +53,7 @@ router.get('/search/:query', async (req, res, next) => {
       title: `${req.params.query} 검색 결과`,
       results: response.json.results,
       query: req.params.query,
+      apiKey: process.env.GOOGLE_MAPS_API_KEY, 
     });
   } catch (error) {
     console.error(error);

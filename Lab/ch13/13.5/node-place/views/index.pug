@@ -28,9 +28,8 @@ block content
         });
       });
     }
-  script(
+    script(
     async
     defer
-    src="https://maps.googleapis.com/maps/api/js"
-      + "?key=AIzaSyDaF4Pzmqg5oVAaC4iMIrZVeyq42bAKHhU&callback=initMap"
+    src=`https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`
   )

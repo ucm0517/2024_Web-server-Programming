@@ -14,7 +14,10 @@ const googleMapsClient = googleMaps.createClient({
 router.get('/', async (req, res, next) => {
   try {
     const favorites = await Favorite.find({});
-    res.render('index', { results: favorites });
+    res.render('index', {
+      results: favorites,
+      apiKey: process.env.GOOGLE_MAPS_API_KEY
+    });
   } catch (error) {
     console.error(error);
     next(error);
@@ -24,8 +27,9 @@ router.get('/', async (req, res, next) => {
 router.get('/result', (req, res) => {
   res.render('result', {
     PLACES_API_KEY: process.env.PLACES_API_KEY,
+    apiKey: process.env.GOOGLE_MAPS_API_KEY,
     query: '검색어',
-    results: searchResults // ← 이건 기존 검색 결과 배열
+    results: searchResults 
   });
 });
 
@@ -65,9 +69,9 @@ router.get('/search/:query', async (req, res, next) => {
       });
     }
     res.render('result', {
-      title: `${req.params.query} 검색 결과`,
-      results: response.json.results,
       query: req.params.query,
+      results: response.json.results,
+      apiKey: process.env.GOOGLE_MAPS_API_KEY
     });
   } catch (error) {
     console.error(error);
