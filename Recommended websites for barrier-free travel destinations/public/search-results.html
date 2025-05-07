@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>검색 결과</title>
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/search.css"> <!-- CSS 파일 경로 수정 -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>검색 결과</h1>
+        </header>
+        
+        <!-- 검색 기능 추가 -->
+        <div class="search-container">
+            <form id="searchForm" action="search-results.html" method="get">
+                <input type="text" id="keyword" name="keyword" placeholder="검색어를 입력해 주세요." required>
+                <button type="submit">검색</button>
+            </form>
+        </div>
+
+        <div id="results"></div>
+        <div class="loading-spinner" id="loadingSpinner"></div>
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 문의: 010-1234-5678</p>
+    </footer>
+    <script src="js/search-results.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+/* 기본 스타일 초기화 */
+* {
+    font-family: "Do Hyeon", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 배경 및 기본 설정 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    background-image: url('images/background.jpg'); /* 배경 이미지 추가 */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* 컨테이너 설정 */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* 반투명 배경 */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+/* 헤더 스타일 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #007BFF;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+header h1:hover {
+    color: #0056b3;
+}
+
+.user-links a {
+    color: #007BFF;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.user-links a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* 섹션 스타일 */
+.section {
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    font-size: 24px;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.section .content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+.section .content .review,
+.section .content .comment {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.section .content .review:last-child,
+.section .content .comment:last-child {
+    border-bottom: none;
+}
+
+/* 푸터 스타일 */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+footer p {
+    color: #777;
+    font-size: 14px;
+}

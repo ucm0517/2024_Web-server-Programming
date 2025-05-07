@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" href="css/login.css"> <!-- CSS 파일 경로 수정 -->
+</head>
+<body>
+    <div class="login-container">
+        <h2>로그인</h2>
+        <form id="loginForm">
+            <label for="email">아이디</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">로그인</button>
+        </form>
+        <p>아직 회원이 아니신가요? <a href="signup.html">회원가입</a></p>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loggedIn = sessionStorage.getItem('loggedIn');
+            const username = sessionStorage.getItem('username');
+            if (loggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('logout-link').style.display = 'inline';
+                document.getElementById('mypage-link').style.display = 'inline';
+                document.getElementById('mypage-link').textContent = username + '의 페이지';
+                window.location.href = 'index.html';
+            }
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.username) {
+                    sessionStorage.setItem('loggedIn', true);
+                    sessionStorage.setItem('username', data.username);
+                    window.location.href = 'index.html';
+                } else {
+                    alert('로그인에 실패했습니다. 아이디와 비밀번호를 확인하세요.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        function logout() {
+            sessionStorage.removeItem('loggedIn');
+            sessionStorage.removeItem('username');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

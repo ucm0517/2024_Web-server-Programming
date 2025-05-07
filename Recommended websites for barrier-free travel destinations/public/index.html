@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>편안한 여행</title>
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css"> <!-- CSS 파일 경로 수정 -->
+</head>
+<body>
+    <header>
+        <h1 onclick="location.href='index.html'" style="cursor: pointer;">편안한 여행</h1>
+
+        <!--날씨-->
+        <div class="weather-info">
+            <button class="button" type="button">현재 날씨</button>
+            <dl>
+                <dd class="temperature"></dd>  <!--온도-->
+                <dd class="place"></dd>  <!--위치-->
+                <dd class="description"></dd> <!--날씨 설명-->
+            </dl>
+            <img class="icon" />
+        </div>
+
+        <div class="user-links">
+            <a href="index.html" id="home-link">HOME</a>
+            <a href="mypage.html" id="mypage-link">내 페이지</a>
+            <a href="login.html" id="login-link">로그인/회원가입</a>
+            <a href="#" id="logout-link" style="display:none;" onclick="logout()">로그아웃</a>
+        </div>
+    </header>
+    <div class="container">
+        <nav>
+            <a href="info.html" class="dropdown-toggle">무장애 여행지란?</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">지역별 여행지</a>
+                <div class="nav-dropdown">
+                    <a href="area.html?region=서울">서울</a>
+                    <a href="area.html?region=인천">인천</a>
+                    <a href="area.html?region=대전">대전</a>
+                    <a href="area.html?region=경기도">경기도</a>
+                    <a href="area.html?region=강원특별자치도">강원특별자치도</a>
+                    <a href="area.html?region=충청북도">충청북도</a>
+                    <a href="area.html?region=충청남도">충청남도</a>
+                    <a href="area.html?region=경상북도">경상북도</a>
+                    <a href="area.html?region=경상남도">경상남도</a>
+                    <a href="area.html?region=전북특별자치도">전북특별자치도</a>
+                    <a href="area.html?region=전라남도">전라남도</a>
+                    <a href="area.html?region=제주도">제주도</a>
+                    <a href="area.html?region=대구">대구</a>
+                    <a href="area.html?region=광주">광주</a>
+                    <a href="area.html?region=부산">부산</a>
+                    <a href="area.html?region=울산">울산</a>
+                    <a href="area.html?region=세종특별자치시">세종특별자치시</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 검색 기능 추가 -->
+        <div class="search-container">
+            <form id="searchForm">
+                <input type="text" id="keyword" name="keyword" placeholder="검색어를 입력해 주세요.">
+                <button type="submit">검색</button>
+            </form>
+        </div>
+
+        <!-- 명언 섹션 -->
+        <section class="quote-container">
+            <p id="quote" style="font-size: 25px; font-weight: bold;">여행은 당신을 겸손하게 만든다. 세상에서 당신이 차지하는 위치가 얼마나 작은 것인지를 깨닫게 해준다. - 귀스타브 플로베르</p>
+            <button onclick="showNewQuote()">새로운 명언 보기</button>
+        </section>
+        <img src="img2.png" alt="여행 이미지" style="width: 40%; height: auto;">
+
+    </div>
+    <footer>
+        <p>&copy; 문의: 010-7546-0517</p>
+    </footer>
+    <script src="js/main.js"></script> 
+    <script src="js/weather.js"></script> <!-- 날씨 스크립트 추가 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loggedIn = sessionStorage.getItem('loggedIn');
+            const username = sessionStorage.getItem('username');
+            if (loggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('logout-link').style.display = 'inline';
+                document.getElementById('mypage-link').style.display = 'inline';
+                document.getElementById('mypage-link').textContent = username + '의 페이지';
+            } else {
+                document.getElementById('login-link').style.display = 'inline';
+                document.getElementById('logout-link').style.display = 'none';
+                document.getElementById('mypage-link').style.display = 'none';
+            }
+        });
+
+        function logout() {
+            sessionStorage.removeItem('loggedIn');
+            sessionStorage.removeItem('username');
+            window.location.href = 'index.html';
+        }
+
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const keyword = document.getElementById('keyword').value;
+            if (keyword) {
+                window.location.href = `search-results.html?keyword=${encodeURIComponent(keyword)}`;
+            } else {
+                alert('검색어를 입력해 주세요.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>무장애 여행지</title>
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css"> <!-- CSS 파일 경로 수정 -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 onclick="location.href='index.html'" style="cursor: pointer;">편안한 여행</h1>
+
+            <!-- 날씨 -->
+            <div class="weather-info">
+                <button class="button" type="button">현재 날씨</button>
+                <dl>
+                    <dd class="temperature"></dd>  <!--온도-->
+                    <dd class="place"></dd>  <!--위치-->
+                    <dd class="description"></dd> <!--날씨 설명-->
+                </dl>
+                <img class="icon" />
+            </div>
+
+            <div class="user-links">
+                <a href="index.html" id="home-link">HOME</a>
+                <a href="mypage.html" id="mypage-link">내 페이지</a>
+                <a href="login.html" id="login-link">로그인/회원가입</a>
+                <a href="#" id="logout-link" style="display:none;" onclick="logout()">로그아웃</a>
+            </div>
+        </header>
+
+        <nav>
+            <a href="info.html" class="dropdown-toggle">무장애 여행지란?</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">무장애 유형별 여행지</a>
+                <div class="nav-dropdown">
+                    <a href="disability_results.html?type=wheelchair">휠체어 사용자</a>
+                    <a href="disability_results.html?type=visual">시각 장애</a>
+                    <a href="disability_results.html?type=hearing">청각 장애</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">지역별 여행지</a>
+                <div class="nav-dropdown">
+                    <a href="area.html?region=서울">서울</a>
+                    <a href="area.html?region=인천">인천</a>
+                    <a href="area.html?region=대전">대전</a>
+                    <a href="area.html?region=경기도">경기도</a>
+                    <a href="area.html?region=강원특별자치도">강원특별자치도</a>
+                    <a href="area.html?region=충청북도">충청북도</a>
+                    <a href="area.html?region=충청남도">충청남도</a>
+                    <a href="area.html?region=경상북도">경상북도</a>
+                    <a href="area.html?region=경상남도">경상남도</a>
+                    <a href="area.html?region=전북특별자치도">전북특별자치도</a>
+                    <a href="area.html?region=전라남도">전라남도</a>
+                    <a href="area.html?region=제주도">제주도</a>
+                    <a href="area.html?region=대구">대구</a>
+                    <a href="area.html?region=광주">광주</a>
+                    <a href="area.html?region=부산">부산</a>
+                    <a href="area.html?region=울산">울산</a>
+                    <a href="area.html?region=세종특별자치시">세종특별자치시</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">내 근처 여행지</a>
+                <div class="nav-dropdown">
+                    <a href="#">관광지</a>
+                    <a href="#">음식점</a>
+                    <a href="#">카페</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 섹션 내용 -->
+        <section class="section">
+            <h2>무장애 여행지란?</h2>
+            <div class="content">
+                <div>
+                    <p>무장애란 장애인, 노인, 임산부 등 모든 사람이 물리적, 사회적 제약 없이 편리하게 이용할 수 있는 환경을 조성하는 것입니다.</p>
+                </div>
+                <div>
+                    <p>이 사이트는 시각장애인, 청각장애인, 휠체어 사용자도 불편없이 이용할 수 있는 여행지 정보를 제공합니다.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 문의: 010-1234-5678</p>
+    </footer>
+    <script src="js/main.js"></script> <!-- JS 파일 경로 수정 -->
+    <script src="js/weather.js"></script> <!-- 날씨 스크립트 추가 -->
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const keyword = document.getElementById('keyword').value;
+            if (keyword) {
+                window.location.href = `search-results.html?keyword=${encodeURIComponent(keyword)}`;
+            } else {
+                alert('검색어를 입력해 주세요.');
+            }
+        });
+    </script>
+</body>
+</html>

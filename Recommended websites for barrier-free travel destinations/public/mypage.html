@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>내 페이지</title>
+    <link rel="stylesheet" href="css/mypage.css"> <!-- CSS 파일 경로 수정 -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 onclick="location.href='index.html'" style="cursor: pointer;">편안한 여행</h1>
+            <div class="user-links">
+                <a href="index.html" id="home-link">HOME</a>
+                <a href="mypage.html" id="mypage-link">내 페이지</a>
+                <a href="login.html" id="login-link">로그인/회원가입</a>
+                <a href="#" id="logout-link" style="display:none;" onclick="logout()">로그아웃</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>내 정보</h2>
+            <!-- 사용자 정보 표시 -->
+            <p id="userInfo"></p>
+            <button onclick="deleteAccount()">회원 탈퇴</button>
+        </section>
+
+        <section class="section">
+            <h2>내 리뷰</h2>
+            <div id="user-Reviews"></div> <!-- 여기서 리뷰가 표시되어야 합니다. -->
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 문의: 010-1234-5678</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/mypage.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loggedIn = sessionStorage.getItem('loggedIn');
+            const username = sessionStorage.getItem('username');
+            const userId = sessionStorage.getItem('userId'); // userId 가져오기
+            if (loggedIn) {
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('logout-link').style.display = 'inline';
+                document.getElementById('mypage-link').style.display = 'inline';
+                document.getElementById('mypage-link').textContent = username + '의 페이지';
+                document.getElementById('userInfo').textContent = '환영합니다, ' + username + '님!';
+                fetchUserReviews(userId); // userId를 사용하여 리뷰 가져오기
+
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

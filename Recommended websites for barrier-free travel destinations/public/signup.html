@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="css/signup.css"> <!-- CSS 파일 경로 수정 -->
+</head>
+<body>
+    <div class="signup-container">
+        <h2>회원가입</h2>
+        <form onsubmit="register(event)">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">아이디</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password" required>
+            <label for="confirmPassword">비밀번호 확인</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <button type="submit">회원가입</button>
+        </form>
+        <div class="links">
+            <a href="login.html">로그인</a>
+        </div>
+        <div class="main-page-link">
+            <a href="index.html">메인 화면으로</a>
+        </div>
+    </div>
+    <script>
+        async function register(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('비밀번호가 일치하지 않습니다.');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                if (response.ok) {
+                    alert('회원가입이 완료되었습니다.');
+                    window.location.href = 'login.html';
+                } else {
+                    alert('회원가입에 실패했습니다.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('회원가입 중 오류가 발생했습니다.');
+            }
+        }
+    </script>
+</body>
+</html>

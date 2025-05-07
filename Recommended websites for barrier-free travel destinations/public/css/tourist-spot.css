@@ -1,0 +1,120 @@
+/* 모든 요소의 기본 스타일 초기화 */
+* {
+    font-family: "Do Hyeon", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 바디의 배경 및 기본 설정 */
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 컨테이너 설정 */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.image-gallery img {
+    width: 30%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.barrier-info {
+    margin-top: 20px;
+}
+
+.barrier-info div {
+    margin-bottom: 10px;
+}
+
+.barrier-info h4 {
+    margin-top: 10px;
+}
+
+#map-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 1em;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#map-link:hover {
+    text-decoration: underline;
+}
+
+.intro-info {
+    margin-top: 20px;
+}
+
+/* 좋아요 버튼 */
+.like-btn {
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* 리뷰 및 댓글 섹션 */
+#reviews-section {
+    margin-top: 20px;
+}
+
+.review-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.review-author {
+    font-weight: bold;
+}
+
+.commentForm {
+    margin-top: 10px;
+}
+
+.comment-item {
+    margin-left: 20px;
+}

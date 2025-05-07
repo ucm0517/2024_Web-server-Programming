@@ -1,0 +1,401 @@
+/* 모든 요소의 기본 스타일 초기화 */
+* {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 바디의 배경 및 기본 설정 */
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* 컨테이너 설정 */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    padding-top: 220px; /* 상단 고정 요소 높이에 따른 패딩 */
+}
+
+/* 헤더 스타일 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #007BFF;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 1000;
+    height: 50px;
+}
+
+/* 헤더 제목 스타일 */
+header h1 {
+    font-size: 2em;
+    color: #007BFF;
+    cursor: pointer;
+    transition: color 0.3s;
+    margin-bottom: 0;
+}
+
+/* 헤더 제목 호버 효과 */
+header h1:hover {
+    color: #0056b3;
+}
+
+/* 사용자 링크 스타일 */
+.user-links a {
+    color: #007BFF;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+/* 사용자 링크 호버 효과 */
+.user-links a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* 네비게이션 스타일 */
+nav {
+    display: flex;
+    justify-content: space-around;
+    background: #007BFF;
+    padding: 10px;
+    border-radius: 5px;
+    position: fixed;
+    top: 60px; /* 헤더 높이에 따른 위치 조정 */
+    width: 53%;
+    z-index: 999;
+}
+
+/* 네비게이션 링크 스타일 */
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.3s, padding 0.3s;
+    display: block;
+    padding: 10px;
+}
+
+/* 네비게이션 링크 호버 효과 */
+nav a:hover + .nav-dropdown {
+    display: block;
+}
+
+/* 드롭다운 메뉴 스타일 */
+.nav-dropdown {
+    display: none;
+    position: absolute;
+    background: #0056b3;
+    padding: 10px 0;
+    border-radius: 5px;
+    z-index: 1000;
+    width: 200px; /* 원하는 너비로 수정 */
+}
+
+/* 네비게이션 링크 호버 및 포커스 효과 */
+nav a:hover + .nav-dropdown,
+.nav-dropdown:hover {
+    display: block;
+}
+
+.nav-dropdown a {
+    display: block;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+/* 드롭다운 링크 호버 효과 */
+.nav-dropdown a:hover {
+    background: #007BFF;
+}
+
+/* 검색 기능 스타일 */
+.search-container {
+    width: 53%; /* 이미지 너비와 동일하게 설정 */
+    text-align: center;
+    padding: 10px;
+    background: #007BFF;
+    position: fixed;
+    top: 120px; /* 네비게이션 높이에 따른 위치 조정 */
+    z-index: 998;
+}
+
+/* 검색 폼 스타일 */
+.search-container form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+/* 검색 입력 필드 스타일 */
+.search-container input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 60%;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* 검색 입력 필드 포커스 효과 */
+.search-container input[type="text"]:focus {
+    border-color: #0056b3;
+}
+
+/* 검색 버튼 스타일 */
+.search-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* 검색 버튼 호버 효과 */
+.search-container button:hover {
+    background-color: #004494;
+}
+
+/* 명언 섹션 스타일 */
+.quote-container {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px; /* 상단 고정 요소 높이에 따른 마진 */
+    text-align: center;
+}
+
+.quote-container button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* 명언 버튼 호버 효과 */
+.quote-container button:hover {
+    background-color: #004494;
+}
+
+/* 이미지 스타일 */
+img {
+    width: 40%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 페이지네이션 버튼 스타일 */
+.pagination button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 페이지네이션 버튼 호버 효과 */
+.pagination button:hover {
+    background-color: #004494;
+}
+
+/* 페이지네이션 화살표 스타일 */
+.pagination .arrow {
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+/* 섹션 스타일 */
+.section {
+    height: 250px;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+/* 섹션 제목 스타일 */
+.section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #007BFF;
+}
+
+/* 섹션 내용 스타일 */
+.section .content {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+/* 섹션 내용 항목 스타일 */
+.section .content div {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 20%;
+    transition: transform 0.3s;
+}
+
+/* 섹션 내용 항목 호버 효과 */
+.section .content div:hover {
+    transform: scale(1.05);
+}
+
+/* 푸터 스타일 */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+/* 푸터 텍스트 스타일 */
+footer p {
+    color: #777;
+    font-size: 14px;
+}
+
+/* 날씨 */
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.weather-info dl {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-info dd {
+    margin: 0 5px;
+    padding: 0;
+    font-size: 20px;
+}
+
+.weather-info .icon {
+    width: 70px;
+    height: 70px;
+    display: none;
+}
+
+/* 날씨 버튼 */
+.button {
+    background-color: #001eff;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 8px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+#results ul {
+    list-style: none;
+    padding: 0;
+}
+
+#results li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+#results li img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.item-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.item-info p {
+    margin: 5px 0;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #004494;
+}
+
+.pagination .arrow {
+    background-color: #e7e7e7;
+    color: black;
+}
+
+.pagination .arrow:hover {
+    background-color: #ccc;
+}

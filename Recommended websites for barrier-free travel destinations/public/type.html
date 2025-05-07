@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>유형선택</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .slider-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .slider {
+            display: flex;
+            overflow: hidden;
+            width: 80%;
+        }
+        .slider-inner {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+        .slider-item {
+            min-width: 100px;
+            text-align: center;
+            margin: 0 10px;
+        }
+        .slider-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .slider-item p {
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+        .arrow {
+            cursor: pointer;
+            font-size: 2em;
+            user-select: none;
+            display: none; /* 기본적으로 화살표는 숨김 */
+        }
+        .arrow.show {
+            display: block; /* 조건에 따라 화살표를 표시 */
+        }
+        .left-arrow {
+            position: absolute;
+            left: 0;
+        }
+        .right-arrow {
+            position: absolute;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 onclick="location.href='index.html'" style="cursor: pointer;">열린관광</h1>
+            <div class="user-links">
+                <a href="login.html" id="login-link">로그인/회원가입</a>
+                <a href="mypage.html" id="mypage-link">마이페이지</a>
+                <a href="#" id="logout-link" style="display:none;" onclick="logout()">로그아웃</a>
+            </div>
+        </header>
+        <nav>
+            <a href="index.html">열린관광지</a>
+            <a href="#">무장애 관광정보</a>
+            <a href="#">추천 여행</a>
+            <a href="region_select.html">지역 선택</a>
+        </nav>
+        <div class="section">
+            <h2>유형 선택</h2>
+            <div class="slider-container">
+                <div class="arrow left-arrow" id="left-arrow" onclick="slideLeft()">&#9664;</div>
+                <div class="slider" id="slider">
+                    <div class="slider-inner" id="slider-inner">
+                        <!--
+                            <div class="slider-item" onclick="location.href='region_detail.html?region=서울'">
+                            <img src="seoul.png" alt="서울">
+                        -->
+                            <p>휠체어 사용자</p>
+                        </div>
+                        <div class="slider-item" onclick="location.href='region_detail.html?region=인천'">
+                            <!--<img src="incheon.png" alt="인천">-->
+                            <p>시각 장애인</p>
+                        </div>
+                        <div class="slider-item" onclick="location.href='region_detail.html?region=대전'">
+                            <!--<img src="daejeon.png" alt="대전">-->
+                            <p>청각 장애인</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow right-arrow" id="right-arrow" onclick="slideRight()">&#9654;</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script>
+        let currentSlide = 0;
+
+        function updateArrows() {
+            const leftArrow = document.getElementById('left-arrow');
+            const rightArrow = document.getElementById('right-arrow');
+            const totalSlides = document.querySelectorAll('.slider-item').length;
+            
+            if (currentSlide === 0) {
+                leftArrow.classList.remove('show');
+            } else {
+                leftArrow.classList.add('show');
+            }
+            
+            if (currentSlide >= totalSlides - 7) { // Adjust the number based on visible items
+                rightArrow.classList.remove('show');
+            } else {
+                rightArrow.classList.add('show');
+            }
+        }
+
+        function slideLeft() {
+            const sliderInner = document.getElementById('slider-inner');
+            if (currentSlide > 0) {
+                currentSlide--;
+                sliderInner.style.transform = `translateX(-${currentSlide * 120}px)`;
+                updateArrows();
+            }
+        }
+
+        function slideRight() {
+            const sliderInner = document.getElementById('slider-inner');
+            const totalSlides = document.querySelectorAll('.slider-item').length;
+            if (currentSlide < totalSlides - 7) { // Adjust the number based on visible items
+                currentSlide++;
+                sliderInner.style.transform = `translateX(-${currentSlide * 120}px)`;
+                updateArrows();
+            }
+        }
+
+        window.onload = updateArrows; // 페이지 로드 시 화살표 업데이트
+    </script>
+</body>
+</html>

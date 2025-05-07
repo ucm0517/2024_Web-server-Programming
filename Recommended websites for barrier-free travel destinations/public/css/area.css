@@ -1,0 +1,135 @@
+/* 기본 스타일 설정 */
+body {
+    font-family: 'Do Hyeon', sans-serif;
+    background-color: #ffffff; /* 파란색 배경 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #000000; /* 기본 텍스트 색상을 파란색으로 설정 */
+}
+
+h1 {
+    color: #007BFF; /* 파란색 텍스트 */
+    margin-top: 20px;
+    font-size: 2rem; /* 글씨 크기를 2rem으로 설정 */
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+input[type="text"], select {
+    padding: 10px;
+    font-size: 1rem; /* 글씨 크기를 1rem으로 설정 */
+    width: 300px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem; /* 글씨 크기를 1rem으로 설정 */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#results {
+    width: 80%;
+    max-width: 600px;
+    overflow-y: auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+li:hover {
+    transform: scale(1.02);
+}
+
+.item-info {
+    margin-left: 20px;
+}
+
+.item-info h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.25rem; /* 글씨 크기를 1.25rem으로 설정 */
+    color: #007BFF; /* 파란색 텍스트 */
+}
+
+.item-info p {
+    margin: 5px 0;
+    font-size: 1rem; /* 글씨 크기를 1rem으로 설정 */
+}
+
+.loading-spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #007BFF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+}
+
+.pagination .arrow {
+    font-size: 1.25rem; /* 글씨 크기를 1.25rem으로 설정 */
+    padding: 5px 10px;
+}
+
+/* select a region 텍스트 스타일 */
+#select-region {
+    font-size: 1.5rem; /* 글씨 크기를 1.5rem으로 설정 */
+    color: #007BFF; /* 파란색 텍스트 */
+    margin: 20px 0; /* 위아래 여백 설정 */
+}

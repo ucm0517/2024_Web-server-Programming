@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지역별 무장애 여행지 추천</title>
+     <!-- 구글 폰트 -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/area.css">
+</head>
+<body>
+    <h1>지역별 무장애 여행지 추천</h1>
+    <p id="select-region">Select a region:</p>
+    <div>
+        <label for="regionSelect">Select a region: </label>
+        <select id="regionSelect">
+            <option value="">Select a region</option>
+            <option value="서울">서울</option>
+            <option value="인천">인천</option>
+            <option value="대전">대전</option>
+            <option value="경기도">경기도</option>
+            <option value="강원특별자치도">강원특별자치도</option>
+            <option value="충청북도">충청북도</option>
+            <option value="충청남도">충청남도</option>
+            <option value="경상북도">경상북도</option>
+            <option value="경상남도">경상남도</option>
+            <option value="전북특별자치도">전북특별자치도</option>
+            <option value="전라남도">전라남도</option>
+            <option value="제주도">제주도</option>
+            <option value="대구">대구</option>
+            <option value="광주">광주</option>
+            <option value="부산">부산</option>
+            <option value="울산">울산</option>
+            <option value="세종특별자치시">세종특별자치시</option>
+        </select>
+        <button onclick="fetchTouristSpots()">Fetch Tourist Spots</button>
+    </div>
+    <div id="results">
+        <!-- 검색 결과 항목 예시 -->
+        <div class="search-result-item">
+            <img src="image_url" alt="Title">
+            <div class="item-info">
+                <h3>Title</h3>
+                <p>Address</p>
+                <p>Description</p>
+                <button class="like-btn" data-id="contentId">❤</button> <!-- 좋아요 버튼 -->
+            </div>
+        </div>
+    </div>
+    <div class="loading-spinner" id="loadingSpinner"></div>
+    <div class="pagination" id="pagination"></div>
+    <script src="js/area.js"></script>
+</body>
+</html>

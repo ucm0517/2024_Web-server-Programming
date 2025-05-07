@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Spot Details</title>
+     <!-- 구글 폰트 -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/tourist-spot.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 onclick="location.href='index.html'" style="cursor: pointer;">관광지 상세 정보</h1>
+        </header>
+        <div id="detailContent">
+            <div class="details-header">
+                <img id="detailImage" src="" alt="Image">
+                <h2 id="detailTitle">제목 없음</h2>
+                <p id="detailAddr">주소 없음</p>
+            </div>
+            <div id="detailDescription">No description available</div>
+            <div class="barrier-info" id="barrierInfo">
+                <h3>무장애 편의 정보</h3>
+            </div>
+            <div class="image-gallery" id="imageGallery"></div>
+        </div>
+        <div id="map"></div>
+
+        <!-- 리뷰 작성 폼 -->
+        <div>
+            <h3>리뷰</h3>
+            <form id="reviewForm" enctype="multipart/form-data" onsubmit="submitReview(event)">
+                <textarea id="reviewText" name="reviewText" placeholder="리뷰를 작성해주세요..."></textarea>
+                <input type="file" id="reviewImage" name="reviewImage">
+                <button type="submit">제출</button>
+            </form>
+        </div>
+
+        <!-- 리뷰 표시 컨테이너 -->
+        <div id="reviewsContainer"></div>
+    </div>
+    <script src="js/tourist-spot.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Spot Details</title>
+     <!-- 구글 폰트 -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/area.css">
+</head>
+<body>
+    <h1>관광지 상세 정보</h1>
+    <div id="detailsContent"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pathSegments = window.location.pathname.split('/');
+            const contentId = pathSegments[pathSegments.length - 1];
+
+            if (!contentId) {
+                document.getElementById('detailsContent').innerHTML = 'No content ID provided.';
+                return;
+            }
+
+            fetch('/barrier-free-info', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ contentId: contentId })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Received detail data:', data); // Debug log
+                    displayDetails(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching detail data:', error);
+                    document.getElementById('detailsContent').innerHTML = 'Error fetching detail data.';
+                });
+        });
+
+        function displayDetails(data) {
+            const detailsContent = document.getElementById('detailsContent');
+            detailsContent.innerHTML = ''; // Clear previous details
+
+            if (data.response && data.response.body && data.response.body.items) {
+                const item = Array.isArray(data.response.body.items.item) ? data.response.body.items.item[0] : data.response.body.items.item;
+                if (item) {
+                    const img = document.createElement('img');
+                    img.src = item.firstimage || 'images/default-image.jpg'; // Use default image
+                    img.alt = item.title || 'No title';
+
+                    const title = document.createElement('h3');
+                    title.textContent = item.title || 'No title';
+
+                    const addr = document.createElement('p');
+                    addr.textContent = item.addr1 || 'No address available';
+
+                    const description = document.createElement('p');
+                    description.textContent = item.overview || 'No description available';
+
+                    const homepageLink = document.createElement('a');
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(item.homepage, 'text/html');
+                    const link = doc.querySelector('a') ? doc.querySelector('a').href : '#';
+                    homepageLink.href = link;
+                    homepageLink.textContent = '홈페이지 이동';
+                    homepageLink.target = '_blank';
+
+                    detailsContent.appendChild(img);
+                    detailsContent.appendChild(title);
+                    detailsContent.appendChild(addr);
+                    detailsContent.appendChild(description);
+                    detailsContent.appendChild(homepageLink);
+
+                    // Add barrier-free information
+                    if (item.bfree_content) {
+                        const barrierFreeInfo = document.createElement('div');
+                        barrierFreeInfo.innerHTML = `
+                            <h3>Barrier-Free Information</h3>
+                            <p>${item.bfree_content}</p>
+                        `;
+                        detailsContent.appendChild(barrierFreeInfo);
+                    } else {
+                        detailsContent.innerHTML += '<p>No barrier-free information available</p>';
+                    }
+                } else {
+                    detailsContent.innerHTML = 'No details available';
+                }
+            } else {
+                detailsContent.innerHTML = 'No details available';
+            }
+        }
+    </script>
+</body>
+</html>

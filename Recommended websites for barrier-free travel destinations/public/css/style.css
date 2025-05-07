@@ -1,0 +1,261 @@
+/* /public/css/style.css */
+
+/* 기본 글씨 크기 설정 */
+html {
+    font-size: 18px; /* 기본 글씨 크기를 18px로 설정 */
+}
+
+/* 모든 요소의 기본 스타일 초기화 */
+* {
+    font-family: "Do Hyeon", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 바디의 배경 및 기본 설정 */
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* 컨테이너 설정 */
+.container {
+    max-width: 1200px;
+    width: 90%; /* 너비를 90%로 설정 */
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 헤더 스타일 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem; /* 글자 크기를 2.5rem으로 설정 */
+    color: #007BFF;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+header h1:hover {
+    color: #0056b3;
+}
+
+.user-links a {
+    color: #007BFF;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 1.25rem; /* 글자 크기를 1.25rem으로 설정 */
+    transition: color 0.3s;
+}
+
+.user-links a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* 네비게이션 스타일 */
+nav {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    background: #007BFF;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.25rem; /* 글자 크기를 1.25rem으로 설정 */
+    transition: background 0.3s, padding 0.3s;
+    position: relative;
+}
+
+nav a:hover {
+    background: #0056b3;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+/* 이미지 크기 일정하게 유지 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 검색 기능 스타일 */
+.search-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.search-container form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    font-size: 1rem; /* 글자 크기를 1rem으로 설정 */
+    width: 300px;
+    margin-right: 10px;
+    border: 2px solid #007BFF;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #0056b3;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    font-size: 1rem; /* 글자 크기를 1rem으로 설정 */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+#results {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+#results ul {
+    list-style: none;
+    padding: 0;
+}
+
+#results li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#results img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.item-info {
+    margin-left: 20px;
+}
+
+.item-info h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.item-info p {
+    margin: 5px 0;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    font-size: 1rem; /* 글자 크기를 1rem으로 설정 */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+}
+
+.pagination .arrow {
+    font-size: 1.25rem; /* 글자 크기를 1.25rem으로 설정 */
+    padding: 5px 10px;
+}
+
+.section {
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem; /* 글자 크기를 2rem으로 설정 */
+    color: #007BFF;
+}
+
+.section .content {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.section .content div {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 20%;
+    transition: transform 0.3s;
+}
+
+.section .content div:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+footer p {
+    color: #777;
+    font-size: 1rem; /* 글자 크기를 1rem으로 설정 */
+}
